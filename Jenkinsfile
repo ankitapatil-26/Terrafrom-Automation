@@ -22,7 +22,7 @@ pipeline {
            stage('apply') {
           steps {
                 echo "Applying Terraform plan"
-                sh "terraform apply \"${PLAN_FILE}\" --auto-approve"
+                sh ("terraform apply "PLAN_FILE")
             }
         }
 
