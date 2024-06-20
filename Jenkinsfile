@@ -19,6 +19,15 @@ pipeline {
                 sh ('terraform plan -out=PLAN_FILE') 
             }
         }
+           stage('apply') {
+            when {
+                expression { return params.action == 'apply' }
+            }
+            steps {
+                echo "Applying Terraform plan"
+                sh "terraform apply \"${PLAN_FILE}\" --auto-approve"
+            }
+        }
 
         stage (" Action") {
             steps {
