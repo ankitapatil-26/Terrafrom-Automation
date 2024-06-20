@@ -16,7 +16,7 @@ pipeline {
         
         stage ("plan") {
             steps {
-                sh ('terraform plan') 
+                sh ('terraform plan -out=${PLAN_FILE') 
             }
         }
 
