@@ -16,13 +16,7 @@ pipeline {
         
         stage ("plan") {
             steps {
-                sh ('terraform plan -out=PLAN_FILE') 
-            }
-        }
-           stage('apply') {
-          steps {
-                echo "Applying Terraform plan"
-                sh ("terraform apply "PLAN_FILE")
+                sh ('terraform plan') 
             }
         }
 
